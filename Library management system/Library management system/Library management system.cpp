@@ -9,7 +9,7 @@ using namespace std;
 
 //globalvariable
 const int capacity = 1000;
-int numofbooks = 5;
+int numofbooks = 0;
 string* Author = new string[capacity];
 string* Title = new string[capacity];
 int* ID = new int[capacity];
@@ -356,31 +356,36 @@ int main() {
     //load ancient data
     load_from_file();
 
-    //initialize_Variables
-    string titles[] = {
-            "Clean Code",
-            "Effective C++",
-            "Grokking Algorithms",
-            "Don't Make Me Think",
-            "A Tour of C++"
-    };
-
-    string authors[] = {
-            "Robert C. Martin",
-            "Scott Meyers",
-            "Aditya Bhargava",
-            "Steve Krug",
-            "Bjarne Stroustrup"
-    };
-
-    ID[0] = 1000;
-
-    for (int i = 0; i < 5; i++) {
-        ID[i + 1] = ID[i] + 1;
-        Status[i] = true;
-        Title[i] = titles[i];
-        Author[i] = authors[i];
-    }
+	//initialize_Variables
+	if (numofbooks == 0) {
+	    numofbooks = 5;
+	    string titles[] = {
+	            "Clean Code",
+	            "Effective C++",
+	            "Grokking Algorithms",
+	            "Don't Make Me Think",
+	            "A Tour of C++"
+	    };
+	
+	    string authors[] = {
+	            "Robert C. Martin",
+	            "Scott Meyers",
+	            "Aditya Bhargava",
+	            "Steve Krug",
+	            "Bjarne Stroustrup"
+	    };
+	
+	    ID[0] = 1000;
+	
+	    for (int i = 0; i < 5; i++) {
+	        ID[i + 1] = ID[i] + 1;
+	        Status[i] = true;
+	        Title[i] = titles[i];
+	        Author[i] = authors[i];
+	    }
+	
+	    save_to_file();
+	}
 
     cout << "\t\t\t\t\t----AMOOR library----\n";
 
